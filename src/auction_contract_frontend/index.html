@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IC Hello Starter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IC Auction Contract</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="browser-warning">
-    ⚠️ If this page appears broken, try reloading. If the problem persists, try switching browsers; Chrome or
-    Firefox are recommended.
-  </div>
-  <div id="root"></div>
-  <script type="module" src="/src/main.js"></script>
-</body>
+    <div class="container">
+        <h1>IC Auction Marketplace</h1>
 
+        <section class="item-listing">
+            <h2>List New Item</h2>
+            <input type="text" id="itemName" placeholder="Item Name">
+            <textarea id="itemDescription" placeholder="Item Description"></textarea>
+            <button id="listItemBtn">List Item</button>
+            <p id="listItemStatus"></p>
+        </section>
+
+        <section class="item-list">
+            <h2>Available Items</h2>
+            <button id="refreshItemsBtn">Refresh Items</button>
+            <div id="itemsContainer">
+                <p>No items listed yet. Click "Refresh Items" or list one above!</p>
+            </div>
+        </section>
+
+        <section class="bid-section">
+            <h2>Place a Bid</h2>
+            <input type="number" id="bidItemId" placeholder="Item ID to bid on">
+            <input type="number" id="bidAmount" placeholder="Bid Amount">
+            <button id="placeBidBtn">Place Bid</button>
+            <p id="bidStatus"></p>
+        </section>
+    </div>
+
+    <script src="index.js"></script>
+</body>
 </html>
