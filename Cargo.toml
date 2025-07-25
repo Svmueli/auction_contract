@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/auction_contract_backend"
+]
+resolver = "2"
