@@ -1,3 +1,25 @@
+type Bid = record { amount : nat64; bidder : principal };
+type Item = record {
+  id : nat64;
+  active : bool;
+  owner : principal;
+  name : text;
+  description : text;
+  highest_bidder : opt principal;
+  current_highest_bid : nat64;
+  new_owner : opt principal;
+};
+type Result = variant { Ok : text; Err : text };
 service : {
-    "greet": (text) -> (text) query;
+  bid_for_item : (nat64, nat64) -> (Result);
+  get_bids_for_item : (nat64) -> (vec Bid) query;
+  get_highest_bid_for_item : (nat64) -> (opt Bid) query;
+  get_item : (nat64) -> (opt Item) query;
+  get_item_with_most_bids : () -> (opt Item) query;
+  get_listed_items_count : () -> (nat64) query;
+  get_most_expensive_sold_item : () -> (opt Item) query;
+  list_all_items : () -> (vec Item) query;
+  list_item : (text, text) -> (nat64);
+  stop_listing : (nat64) -> (Result);
+  update_listing : (nat64, opt text, opt text) -> (Result);
 }
